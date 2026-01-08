@@ -1,6 +1,34 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
+const heroSlides = [
+  {
+    url: "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=2070&auto=format&fit=crop",
+    alt: "Wedding couple in garden",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop",
+    alt: "Bride holding bouquet",
+  },
+  {
+    url: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=2070&auto=format&fit=crop",
+    alt: "Wedding reception lights",
+  },
+];
+
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-advance slide every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-sans text-zinc-900 dark:bg-black dark:text-zinc-100">
       {/* Navigation */}
@@ -43,29 +71,52 @@ export default function Home() {
       </header>
 
       <main>
-        {/* Hero Section */}
-        <section className="flex min-h-[90vh] flex-col items-center justify-center px-6 pt-32 text-center">
-          <h1 className="max-w-4xl text-5xl font-semibold tracking-tight sm:text-7xl">
-            Capturing love stories <br /> in their purest form.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
-            Professional wedding and event photography based in the Philippines.
-            Preserving your most cherished moments with elegance and
-            authenticity.
-          </p>
-          <div className="mt-10 flex gap-4">
-            <Link
-              href="#portfolio"
-              className="rounded-full bg-zinc-900 px-8 py-3 font-medium text-white transition-transform hover:scale-105 dark:bg-zinc-100 dark:text-black"
+        {/* Hero Section with Full Screen Carousel */}
+        {/* Changed: h-screen (full height), w-full, removed padding from container to let images touch edges */}
+        <section className="relative h-screen w-full overflow-hidden text-center text-white">
+          {/* Background Images */}
+          {heroSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
             >
-              View Gallery
-            </Link>
-            <Link
-              href="#contact"
-              className="rounded-full border border-zinc-200 px-8 py-3 font-medium transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900"
-            >
-              Get in Touch
-            </Link>
+              <img
+                src={slide.url}
+                alt={slide.alt}
+                className="h-full w-full object-cover" // Ensures image covers the full screen
+              />
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/40" />
+            </div>
+          ))}
+
+          {/* Hero Content */}
+          {/* Changed: Added h-full and flex centering here to center text over the background */}
+          <div className="relative z-10 flex h-full flex-col items-center justify-center px-6">
+            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight sm:text-7xl drop-shadow-sm">
+              Capturing love stories <br /> in their purest form.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-zinc-100 drop-shadow-sm">
+              Professional wedding and event photography based in the
+              Philippines. Preserving your most cherished moments with elegance
+              and authenticity.
+            </p>
+            <div className="mt-10 flex gap-4">
+              <Link
+                href="#portfolio"
+                className="rounded-full bg-white px-8 py-3 font-medium text-zinc-900 transition-transform hover:scale-105 hover:bg-zinc-100"
+              >
+                View Gallery
+              </Link>
+              <Link
+                href="#contact"
+                className="rounded-full border border-white px-8 py-3 font-medium text-white transition-colors hover:bg-white/10"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -100,7 +151,7 @@ export default function Home() {
             {/* Gallery Item 2 */}
             <div className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
               <img
-                src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?q=80&w=2070&auto=format&fit=crop"
                 alt="Wedding detail"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
