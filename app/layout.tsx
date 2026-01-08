@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 // This is where the Metadata type is used
 export const metadata: Metadata = {
-  title: "Lens & Light | Wedding Photography",
+  title: "SunsetHues | Wedding Photography",
   description: "Professional wedding and event photography portfolio.",
 };
 
