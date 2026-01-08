@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  /* Base: Light Cream / Milk */
-  --background: #faf7f5;
-  /* Text: Deep Espresso / Dark Cocoa */
-  --foreground: #4a4036;
+  /* Base: Wedding White */
+  --background: #ffffff;
+  /* Text: Dark Gray */
+  --foreground: #333333;
 }
 
 @theme inline {
@@ -16,10 +16,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Dark Mode: Deep Mocha / Dark Roast */
-    --background: #2c2520;
-    /* Dark Mode Text: Steamed Milk */
-    --foreground: #e6dfd5;
+    /* Dark Mode: Pure White */
+    --background: #ffffff;
+    /* Dark Mode Text: Very Dark Gray */
+    --foreground: #1a1a1a;
   }
 }
 
