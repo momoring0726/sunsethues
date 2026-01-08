@@ -30,40 +30,42 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-zinc-900 dark:bg-black dark:text-zinc-100">
+    <div className="min-h-screen font-sans text-[#4a4036] dark:text-[#e6dfd5]">
       {/* Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-100 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-black/80">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="text-xl font-bold tracking-tighter">SunsetHues</div>
-          <nav className="hidden gap-8 text-sm font-medium sm:flex">
+      <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#e6dfd5] bg-[#faf7f5]/80 backdrop-blur-md dark:border-[#3e3530] dark:bg-[#2c2520]/80">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+          <div className="text-2xl font-semibold tracking-widest uppercase text-[#5d5045] dark:text-[#d7ccc8]">
+            SunsetHues
+          </div>
+          <nav className="hidden gap-10 text-base font-medium text-[#8d7f73] sm:flex dark:text-[#ac9e93]">
             <Link
               href="#portfolio"
-              className="hover:text-zinc-500 transition-colors"
+              className="hover:text-[#4a4036] transition-colors dark:hover:text-[#e6dfd5]"
             >
               Portfolio
             </Link>
             <Link
               href="#services"
-              className="hover:text-zinc-500 transition-colors"
+              className="hover:text-[#4a4036] transition-colors dark:hover:text-[#e6dfd5]"
             >
               Services
             </Link>
             <Link
               href="#about"
-              className="hover:text-zinc-500 transition-colors"
+              className="hover:text-[#4a4036] transition-colors dark:hover:text-[#e6dfd5]"
             >
               About
             </Link>
             <Link
               href="#contact"
-              className="hover:text-zinc-500 transition-colors"
+              className="hover:text-[#4a4036] transition-colors dark:hover:text-[#e6dfd5]"
             >
               Contact
             </Link>
           </nav>
           <Link
             href="#contact"
-            className="rounded-full bg-zinc-900 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-300"
+            className="rounded-none bg-[#8c7b70] px-8 py-3 text-sm font-medium uppercase tracking-wider text-[#faf7f5] transition-colors hover:bg-[#75665c] dark:bg-[#d7ccc8] dark:text-[#2c2520] dark:hover:bg-[#beb2ae]"
           >
             Book Now
           </Link>
@@ -72,7 +74,6 @@ export default function Home() {
 
       <main>
         {/* Hero Section with Full Screen Carousel */}
-        {/* Changed: h-screen (full height), w-full, removed padding from container to let images touch edges */}
         <section className="relative h-screen w-full overflow-hidden text-center text-white">
           {/* Background Images */}
           {heroSlides.map((slide, index) => (
@@ -85,185 +86,171 @@ export default function Home() {
               <img
                 src={slide.url}
                 alt={slide.alt}
-                className="h-full w-full object-cover" // Ensures image covers the full screen
+                className="h-full w-full object-cover"
               />
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black/40" />
+              {/* Overlay: Warm Coffee Brown tint */}
+              <div className="absolute inset-0 bg-[#3e3025]/40" />
             </div>
           ))}
 
           {/* Hero Content */}
-          {/* Changed: Added h-full and flex centering here to center text over the background */}
-          <div className="relative z-10 flex h-full flex-col items-center justify-center px-6">
-            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight sm:text-7xl drop-shadow-sm">
-              Capturing love stories <br /> in their purest form.
+          <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-20">
+            <h1 className="max-w-5xl text-6xl font-light tracking-tight sm:text-8xl drop-shadow-sm font-serif italic text-[#fbf9f6]">
+              Timeless.{" "}
+              <span className="not-italic font-sans font-normal">
+                Authentic.
+              </span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-zinc-100 drop-shadow-sm">
-              Professional wedding and event photography based in the
-              Philippines. Preserving your most cherished moments with elegance
-              and authenticity.
+            <p className="mt-8 max-w-3xl text-2xl text-[#efebe9] drop-shadow-sm font-light tracking-wide leading-relaxed">
+              Capturing the quiet moments and the loud celebrations in soft,
+              golden light.
             </p>
-            <div className="mt-10 flex gap-4">
+            <div className="mt-14 flex gap-6">
               <Link
                 href="#portfolio"
-                className="rounded-full bg-white px-8 py-3 font-medium text-zinc-900 transition-transform hover:scale-105 hover:bg-zinc-100"
+                className="min-w-[180px] border border-[#fbf9f6] bg-[#fbf9f6] px-10 py-4 text-base font-bold uppercase tracking-widest text-[#4a4036] transition-colors hover:bg-[#efebe9]"
               >
                 View Gallery
               </Link>
               <Link
                 href="#contact"
-                className="rounded-full border border-white px-8 py-3 font-medium text-white transition-colors hover:bg-white/10"
+                className="min-w-[180px] border border-[#fbf9f6] px-10 py-4 text-base font-bold uppercase tracking-widest text-[#fbf9f6] backdrop-blur-sm transition-colors hover:bg-[#fbf9f6]/10"
               >
-                Get in Touch
+                Inquire
               </Link>
             </div>
           </div>
         </section>
 
         {/* Portfolio / Selected Works */}
-        <section id="portfolio" className="mx-auto max-w-7xl px-6 py-24">
-          <div className="mb-12 flex items-end justify-between">
-            <div>
-              <h2 className="text-3xl font-semibold tracking-tight">
-                Selected Works
-              </h2>
-              <p className="mt-2 text-zinc-500">
-                Highlights from recent celebrations.
-              </p>
-            </div>
+        <section id="portfolio" className="mx-auto max-w-7xl px-6 py-32">
+          <div className="mb-20 flex flex-col items-center justify-center text-center">
+            <span className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#a1887f]">
+              Selected Works
+            </span>
+            <h2 className="text-5xl font-light text-[#4a4036] dark:text-[#e6dfd5] font-serif italic">
+              Love Stories
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {/* Gallery Item 1 */}
-            <div className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
+            <div className="group relative aspect-[3/4] overflow-hidden bg-[#e6dfd5] dark:bg-[#3e3530]">
               <img
                 src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop"
                 alt="Wedding couple"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="font-medium text-white">
-                  Sarah & James — Batangas
+              <div className="absolute inset-0 flex items-end justify-center bg-[#2c2520]/0 p-8 opacity-0 transition-all duration-500 group-hover:bg-[#2c2520]/30 group-hover:opacity-100">
+                <span className="bg-[#faf7f5]/95 px-6 py-3 text-sm font-bold uppercase tracking-widest text-[#5d4037] backdrop-blur-md shadow-sm">
+                  Batangas Wedding
                 </span>
               </div>
             </div>
 
             {/* Gallery Item 2 */}
-            <div className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
+            <div className="group relative aspect-[3/4] overflow-hidden bg-[#e6dfd5] dark:bg-[#3e3530]">
               <img
                 src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?q=80&w=2070&auto=format&fit=crop"
                 alt="Wedding detail"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="font-medium text-white">
-                  Floral Details — Garden Wedding
+              <div className="absolute inset-0 flex items-end justify-center bg-[#2c2520]/0 p-8 opacity-0 transition-all duration-500 group-hover:bg-[#2c2520]/30 group-hover:opacity-100">
+                <span className="bg-[#faf7f5]/95 px-6 py-3 text-sm font-bold uppercase tracking-widest text-[#5d4037] backdrop-blur-md shadow-sm">
+                  Details
                 </span>
               </div>
             </div>
 
             {/* Gallery Item 3 */}
-            <div className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
+            <div className="group relative aspect-[3/4] overflow-hidden bg-[#e6dfd5] dark:bg-[#3e3530]">
               <img
                 src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=800&auto=format&fit=crop"
                 alt="Reception event"
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="font-medium text-white">
-                  The Reception — Manila
+              <div className="absolute inset-0 flex items-end justify-center bg-[#2c2520]/0 p-8 opacity-0 transition-all duration-500 group-hover:bg-[#2c2520]/30 group-hover:opacity-100">
+                <span className="bg-[#faf7f5]/95 px-6 py-3 text-sm font-bold uppercase tracking-widest text-[#5d4037] backdrop-blur-md shadow-sm">
+                  The Reception
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 text-center">
-            <button className="text-sm font-semibold underline underline-offset-4 hover:text-zinc-600 dark:hover:text-zinc-300">
+          <div className="mt-20 text-center">
+            <button className="inline-block border-2 border-[#8d7f73] px-10 py-4 text-sm font-bold uppercase tracking-widest text-[#8d7f73] transition-colors hover:bg-[#8d7f73] hover:text-[#faf7f5] dark:border-[#d7ccc8] dark:text-[#d7ccc8] dark:hover:bg-[#d7ccc8] dark:hover:text-[#2c2520]">
               View Full Portfolio
             </button>
           </div>
         </section>
 
-        {/* Services */}
-        <section id="services" className="bg-zinc-50 py-24 dark:bg-zinc-900/50">
-          <div className="mx-auto max-w-6xl px-6">
-            <h2 className="mb-16 text-center text-3xl font-semibold tracking-tight">
-              Services & Events
-            </h2>
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
-              <div className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-sm dark:bg-zinc-800">
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
+        {/* Services - Bento Box Grid */}
+        <section
+          id="services"
+          className="bg-[#f2eeeb] py-32 dark:bg-[#3e3530]/50"
+        >
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-20 text-center">
+              <span className="mb-4 block text-sm font-bold uppercase tracking-[0.25em] text-[#a1887f]">
+                Offerings
+              </span>
+              <h2 className="text-5xl font-light text-[#4a4036] dark:text-[#e6dfd5] font-serif italic">
+                Services & Investments
+              </h2>
+            </div>
+
+            {/* Bento Grid */}
+            <div className="grid h-auto min-h-[800px] grid-cols-1 gap-6 md:grid-cols-3 md:grid-rows-2">
+              {/* Item 1: Weddings (Large, Spans 2 cols, 2 rows on Desktop) */}
+              <div className="group relative col-span-1 md:col-span-2 md:row-span-2 overflow-hidden rounded-sm bg-[#e6dfd5] dark:bg-[#2c2520]">
+                <img
+                  src="https://images.unsplash.com/photo-1519225421980-715cb0202128?q=80&w=1600&auto=format&fit=crop"
+                  alt="Wedding"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2c2520]/90 via-[#2c2520]/20 to-transparent p-12 flex flex-col justify-end">
+                  <h3 className="text-4xl font-serif italic text-[#fbf9f6]">
+                    Weddings
+                  </h3>
+                  <p className="mt-4 text-lg text-[#efebe9] opacity-90">
+                    Full-day coverage capturing every emotion, from the
+                    preparation to the final send-off.
+                  </p>
                 </div>
-                <h3 className="mb-3 text-xl font-medium">Weddings</h3>
-                <p className="text-zinc-500">
-                  Full-day coverage capturing every emotion, from the
-                  preparation to the final send-off.
-                </p>
               </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-sm dark:bg-zinc-800">
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
+
+              {/* Item 2: Pre-Nup / Engagement (Top Right) */}
+              <div className="group relative col-span-1 md:col-span-1 md:row-span-1 overflow-hidden rounded-sm bg-[#e6dfd5] dark:bg-[#2c2520]">
+                <img
+                  src="https://images.unsplash.com/photo-1621621667797-e06afc217fb0?q=80&w=800&auto=format&fit=crop"
+                  alt="Engagement"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2c2520]/90 via-[#2c2520]/20 to-transparent p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-serif italic text-[#fbf9f6]">
+                    Engagement
+                  </h3>
+                  <p className="mt-2 text-base text-[#efebe9] opacity-90">
+                    Stylized outdoor storytelling.
+                  </p>
                 </div>
-                <h3 className="mb-3 text-xl font-medium">Events & Galas</h3>
-                <p className="text-zinc-500">
-                  Professional coverage for corporate events, birthdays,
-                  anniversaries, and social gatherings.
-                </p>
               </div>
-              <div className="flex flex-col items-center text-center">
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-sm dark:bg-zinc-800">
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
+
+              {/* Item 3: Events (Bottom Right) */}
+              <div className="group relative col-span-1 md:col-span-1 md:row-span-1 overflow-hidden rounded-sm bg-[#e6dfd5] dark:bg-[#2c2520]">
+                <img
+                  src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop"
+                  alt="Events"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2c2520]/90 via-[#2c2520]/20 to-transparent p-8 flex flex-col justify-end">
+                  <h3 className="text-2xl font-serif italic text-[#fbf9f6]">
+                    Events & Galas
+                  </h3>
+                  <p className="mt-2 text-base text-[#efebe9] opacity-90">
+                    Corporate and social gatherings.
+                  </p>
                 </div>
-                <h3 className="mb-3 text-xl font-medium">
-                  Pre-Nup / Engagement
-                </h3>
-                <p className="text-zinc-500">
-                  Casual and stylized outdoor shoots to tell your story before
-                  the big day.
-                </p>
               </div>
             </div>
           </div>
@@ -272,25 +259,24 @@ export default function Home() {
         {/* Contact / Footer */}
         <section
           id="contact"
-          className="mx-auto max-w-2xl px-6 py-24 text-center"
+          className="mx-auto max-w-2xl px-6 py-32 text-center"
         >
-          <h2 className="text-3xl font-semibold tracking-tight">
-            Ready to tell your story?
+          <h2 className="text-5xl font-light text-[#4a4036] dark:text-[#e6dfd5] font-serif italic">
+            Let's create something beautiful.
           </h2>
-          <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-            Currently booking for 2024-2025 season. Let's create something
-            beautiful together.
+          <p className="mt-6 text-xl text-[#8d7f73] dark:text-[#ac9e93]">
+            Currently booking for the 2025-2026 season.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-14 flex flex-col items-center justify-center gap-6 sm:flex-row">
             <a
               href="mailto:hello@example.com"
-              className="w-full rounded-full bg-zinc-900 px-8 py-4 font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black sm:w-auto"
+              className="w-full bg-[#8c7b70] px-10 py-4 text-sm font-bold uppercase tracking-widest text-[#faf7f5] transition-colors hover:bg-[#75665c] dark:bg-[#d7ccc8] dark:text-[#2c2520] dark:hover:bg-[#beb2ae] sm:w-auto"
             >
               Email Me
             </a>
             <a
               href="#"
-              className="w-full rounded-full border border-zinc-200 px-8 py-4 font-medium transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900 sm:w-auto"
+              className="w-full border border-[#d7ccc8] px-10 py-4 text-sm font-bold uppercase tracking-widest text-[#5d4037] transition-colors hover:bg-[#f2eeeb] dark:border-[#5d4037] dark:text-[#d7ccc8] dark:hover:bg-[#3e3530] sm:w-auto"
             >
               Instagram
             </a>
@@ -298,9 +284,8 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-zinc-100 py-8 text-center text-sm text-zinc-500 dark:border-zinc-800">
-        &copy; {new Date().getFullYear()} Lens & Light Photography. All rights
-        reserved.
+      <footer className="border-t border-[#e6dfd5] py-14 text-center text-sm font-medium text-[#a1887f] dark:border-[#3e3530] uppercase tracking-widest">
+        &copy; {new Date().getFullYear()} Lens & Light Photography.
       </footer>
     </div>
   );
