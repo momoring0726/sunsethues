@@ -100,7 +100,7 @@ export default function Home() {
             {/* Gallery Item 2 */}
             <div className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800">
               <img
-                src="https://images.unsplash.com/photo-1511285560982-1351cdeb9821?q=80&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Wedding detail"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
